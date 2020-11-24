@@ -6,7 +6,7 @@ const getRunPython = (type) => (payload) => {
   const func = python[type];
   if (!func) throw new Error(`type ${type} is not handle`);
   languagePluginLoader.then(() => {
-    pyodide.loadPackage(['micropip']).then(() => {
+    pyodide.loadPackage().then(() => {
       self.data = payload;
       pyodide.runPythonAsync(func)
         .then((result) => result && self.postMessage({ result }))
