@@ -20,16 +20,14 @@ let config = {
       {
         test: /\.jsx?$/i,
         exclude: /(node_modules|\.worker\.js$)/i,
-        use: [ 'babel-loader' ],
+        loader: 'babel-loader',
       },
       {
         test: /\.worker.js$/i,
-        use: [
-          { loader: 'worker-loader' }
-        ],
+        loader: 'worker-loader'
       },
       {
-        test: /.py$/,
+        test: /.py$/i,
         loader: 'raw-loader'
       }
     ]
